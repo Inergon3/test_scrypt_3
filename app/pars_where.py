@@ -1,5 +1,3 @@
-
-
 def pars_where(arg_where):
     if arg_where is not None:
         symbols = ["<", ">", "="]

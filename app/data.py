@@ -9,16 +9,14 @@ from app.reader import Reader
 class Data:
 
     def return_data(
-            self, files, where=None, aggregate=None
+        self, files, where=None, aggregate=None
     ) -> Union[List[Dict[str, Union[int, float]]], Union[int, float]]:
         reader = Reader()
         data = reader.return_dict(files)
         if where is not None:
             arg_where = pars_where(where)
             filter = Filter()
-            data = filter.return_data(
-                data, arg_where["value"], arg_where["symbol"]
-            )
+            data = filter.return_data(data, arg_where["value"], arg_where["symbol"])
         if aggregate is not None:
             arg_aggregate = pars_agregate(aggregate)
             aggregate_obj = Aggregate()

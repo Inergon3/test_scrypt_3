@@ -43,4 +43,3 @@ def test_return_data(data_obj, test_csv_file):
         }
     ]
     assert result_max == [{"max": 1199}]
-

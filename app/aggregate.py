@@ -4,11 +4,7 @@ from typing import Dict, List, Union
 class Aggregate:
 
     def return_data(self, data, arg_agregate) -> List[Dict[str, Union[int, float]]]:
-        if (
-                ">" in arg_agregate
-                or "<" in arg_agregate
-                or "=" in arg_agregate
-        ):
+        if ">" in arg_agregate or "<" in arg_agregate or "=" in arg_agregate:
             raise ValueError("wrong sign, need use =")
         if arg_agregate == "min":
             data = self.min_price(data)

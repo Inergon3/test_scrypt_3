@@ -43,6 +43,7 @@ def test_return_data(agregate, test_dicts):
     assert data_max == [{"max": 1199}]
     assert data_avg == [{"avg": 1099.0}]
 
+
 def test_return_data_error(agregate, test_dicts):
     with pytest.raises(ValueError):
         agregate.return_data(test_dicts, "<min")
