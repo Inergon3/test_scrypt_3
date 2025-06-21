@@ -4,12 +4,20 @@ from typing import Dict, List, Union
 class Agregate:
 
     def return_data(self, data, arg_agregate) -> List[Dict[str, Union[int, float]]]:
-        if arg_agregate["value"] == "min":
+        if (
+                ">" in arg_agregate
+                or "<" in arg_agregate
+                or "=" in arg_agregate
+        ):
+            raise ValueError("wrong sign, need use =")
+        if arg_agregate == "min":
             data = self.min_price(data)
-        if arg_agregate["value"] == "max":
+        elif arg_agregate == "max":
             data = self.max_price(data)
-        if arg_agregate["value"] == "avg":
+        elif arg_agregate == "avg":
             data = self.avg_price(data)
+        elif arg_agregate != None:
+            raise ValueError("aggregate error")
         return data
 
     def min_price(self, data) -> List[Dict[str, int]]:

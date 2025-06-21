@@ -1,4 +1,5 @@
 __pycache__/
-.env/
+*.py[codz]
+*$py.class
 .idea/
 products.csv
