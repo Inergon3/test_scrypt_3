@@ -9,7 +9,7 @@ def pars_where(arg_where):
     return {"field": None, "symbol": None, "value": 0}
 
 
-def pars_agregate(arg_aggregate):
+def pars_aggregate(arg_aggregate):
     if arg_aggregate is not None:
         if "=" in arg_aggregate:
             field, value = arg_aggregate.split("=")

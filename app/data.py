@@ -2,7 +2,7 @@ from typing import Dict, Union, List
 
 from app.aggregate import Aggregate
 from app.filter import Filter
-from app.pars_where import pars_where, pars_agregate
+from app.pars_arg import pars_where, pars_aggregate
 from app.reader import Reader
 
 
@@ -18,7 +18,7 @@ class Data:
             filter = Filter()
             data = filter.return_data(data, arg_where["value"], arg_where["symbol"])
         if aggregate is not None:
-            arg_aggregate = pars_agregate(aggregate)
+            arg_aggregate = pars_aggregate(aggregate)
             aggregate_obj = Aggregate()
             data = aggregate_obj.return_data(data, arg_aggregate["value"])
         return data
