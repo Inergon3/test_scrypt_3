@@ -9,30 +9,18 @@ from app.reader import Reader
 class Data:
 
     def return_data(
-        self, files, where, agregate
+            self, files, where=None, aggregate=None
     ) -> Union[List[Dict[str, Union[int, float]]], Union[int, float]]:
         reader = Reader()
         data = reader.return_dict(files)
         if where is not None:
             arg_where = pars_where(where)
-            # if (
-            #     ">" in arg_where["value"]
-            #     or "<" in arg_where["value"]
-            #     or "=" in arg_where["value"]
-            # ):
-            #     raise ValueError("wrong sign, need use > or < or =")
             filter = Filter()
             data = filter.return_data(
                 data, arg_where["value"], arg_where["symbol"]
             )
-        if agregate is not None:
-            arg_agregate = pars_agregate(agregate)
-            # if (
-            #     ">" in arg_agregate["value"]
-            #     or "<" in arg_agregate["value"]
-            #     or "=" in arg_agregate["value"]
-            # ):
-            #     raise ValueError("wrong sign, need use =")
-            agregate_obj = Agregate()
-            data = agregate_obj.return_data(data, arg_agregate["value"])
+        if aggregate is not None:
+            arg_aggregate = pars_agregate(aggregate)
+            aggregate_obj = Agregate()
+            data = aggregate_obj.return_data(data, arg_aggregate["value"])
         return data
