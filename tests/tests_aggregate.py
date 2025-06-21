@@ -1,5 +1,5 @@
 import pytest
-from app.agregate import Agregate
+from app.aggregate import Aggregate
 
 
 @pytest.fixture
@@ -17,7 +17,7 @@ def test_dicts():
 
 @pytest.fixture
 def agregate():
-    return Agregate()
+    return Aggregate()
 
 
 def test_min(agregate, test_dicts):

@@ -1,7 +1,7 @@
 from typing import Dict, List, Union
 
 
-class Agregate:
+class Aggregate:
 
     def return_data(self, data, arg_agregate) -> List[Dict[str, Union[int, float]]]:
         if (

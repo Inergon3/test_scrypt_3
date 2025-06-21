@@ -1,6 +1,6 @@
 from typing import Dict, Union, List
 
-from app.agregate import Agregate
+from app.aggregate import Aggregate
 from app.filter import Filter
 from app.pars_where import pars_where, pars_agregate
 from app.reader import Reader
@@ -21,6 +21,6 @@ class Data:
             )
         if aggregate is not None:
             arg_aggregate = pars_agregate(aggregate)
-            aggregate_obj = Agregate()
+            aggregate_obj = Aggregate()
             data = aggregate_obj.return_data(data, arg_aggregate["value"])
         return data
